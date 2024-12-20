@@ -1,0 +1,37 @@
+{
+    "name": "Remote Web Development",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/desktop-lite:1": {
+            "version": "latest",
+            "noVncVersion": "1.2.0",
+            "password": "vscode",
+            "webPort": "6080",
+            "vncPort": "5901"
+        }
+    },
+    "forwardPorts": [
+        6080,
+        5901,
+        3000
+    ],
+    "portsAttributes": {
+        "6080": {
+            "label": "VNC web client (noVNC)",
+            "onAutoForward": "openPreview"
+        },
+        "5901": {
+            "label": "VNC TCP port",
+            "onAutoForward": "silent"
+        },
+        "3000": {
+            "label": "Application",
+            "onAutoForward": "notify"
+        }
+    },
+    "hostRequirements": {
+        "memory": "9gb"
+    }
+}
